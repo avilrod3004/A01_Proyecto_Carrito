@@ -106,5 +106,9 @@ function almacenar() {
 }
 
 function obtenerAlmacenamiento() {
-    contenidoCarrito = JSON.parse(localStorage.getItem("carrito"));
+    if (JSON.parse(localStorage.getItem("carrito")) === null) {
+        localStorage.setItem("carrito", JSON.stringify(contenidoCarrito));
+    } else {
+        contenidoCarrito = JSON.parse(localStorage.getItem("carrito"));
+    }
 }
